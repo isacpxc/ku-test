@@ -87,7 +87,7 @@ function transfer(address _to, uint256 _tokenId) public whenNotPaused {
 ```
 
 3. Deployment:
-Provide a brief guide on how to deploy your smart contract to a test network (e.g., Rinkeby or Kovan). Include any necessary configurations and commands. you can see the interaction video `video.mkv`.
+Provide a brief guide on how to deploy your smart contract to a test network (e.g., Rinkeby or Kovan). Include any necessary configurations and commands. you can see the interaction video `video.mkv`, or clicking [here](https://youtu.be/7hvAN1NoORw).
 
 
 
