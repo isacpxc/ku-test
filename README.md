@@ -87,13 +87,9 @@ function transfer(address _to, uint256 _tokenId) public whenNotPaused {
 ```
 
 3. Deployment:
-Provide a brief guide on how to deploy your smart contract to a test network (e.g., Rinkeby or Kovan). Include any necessary configurations and commands. you can see the interaction clicking [here](https://youtu.be/7hvAN1NoORw).
+Provide a brief guide on how to deploy your smart contract to a test network (e.g., Rinkeby or Kovan). Include any necessary configurations and commands. You can also deploy the contract using remix and metamask, as follows. you can see the interaction clicking [here](https://youtu.be/7hvAN1NoORw).
 
-
-
----
-
-### Step-by-Step Guide for Deploying on the Sepolia Testnet
+### Deploying on the Sepolia Testnet - METAMASK (simpler)
 
 1. **Set Up MetaMask**:
    - Install the MetaMask browser extension from [here](https://metamask.io/download).
@@ -122,6 +118,78 @@ Provide a brief guide on how to deploy your smart contract to a test network (e.
 6. **Interact with Your Contract**:
    - After deployment, your contract will appear under **Deployed Contracts** in Remix.
    - Use the interface to call functions and interact with your contract.
+
+---
+**➡️If you prefer, you can deploy the contract using hardhat as follows:**
+
+### Deploying on the Sepolia Testnet - HARDHAT
+
+This guide explains how to compile and deploy your contract on the Sepolia testnet using Hardhat.
+
+#### Prerequisites
+
+Make sure you have installed:
+- Node.js and npm
+- Hardhat
+- Infura (for RPC connection)
+- An Ethereum wallet with test funds on Sepolia
+- A `.env` file to store private keys
+
+#### Environment Setup
+
+Create a `.env` file in the root of your project and add your credentials:
+
+```env
+INFURA_API_KEY=YOUR_INFURA_API_KEY
+SEPOLIA_PRIVATE_KEY=YOUR_PRIVATE_KEY
+```
+
+#### Install the project dependencies:
+
+```bash
+npm install
+```
+
+#### Modifications in hardhat.config.js
+The hardhat.config.js file is already including the network(Ethereum Sepolia) configuration:
+
+```javascript
+require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-ignition-ethers");
+require('dotenv').config();
+
+const INFURA_API_KEY = process.env.INFURA_API_KEY; // <- endpoint infura key
+const SEPOLIA_PRIVATE_KEY = process.env.SEPOLIA_PRIVATE_KEY; // <- your private key account 
+
+module.exports = {
+  solidity: "0.8.20",
+  networks: {
+    sepolia: {
+      url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [SEPOLIA_PRIVATE_KEY],
+    },
+  },
+};
+
+```
+#### Contract Compilation
+To compile the contract, run:
+
+```bash
+npx hardhat compile
+```
+This will generate the compiled artifacts in the artifacts/ folder.
+
+npx hardhat ignition deploy ignition/modules/MyNFTCollection.js --network sepolia
+
+#### Deployment on Sepolia
+Use Hardhat Ignition to deploy your contract:
+```bash
+npx hardhat ignition deploy ignition/modules/MyNFTCollection.js --network sepolia
+```
+
+After deployment, you can check the transaction on [Sepolia Etherscan](https://sepolia.etherscan.io/) using the generated contract address.
+---
 
 
 
