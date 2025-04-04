@@ -172,7 +172,7 @@ module.exports = {
 };
 ```
 
-## ⚠️**NOTE: To use your own account, enter the address corresponding to the private key used below.**⚠️
+## ⚠️NOTE: To use your own account, enter the address corresponding to the private key used below.⚠️
 #### Contract Compilation
 To compile the contract, run:
 
