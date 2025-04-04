@@ -58,7 +58,7 @@ Requirements:
 Include a function that allows users to mint a new NFT with metadata (name, description, image URL).
 Ensure proper access controls and event emissions.
 
-* contract on `MyNFTCollection.sol`.
+* contract on `contracts/MyNFTCollection.sol`.
 
 2. Code Review:
 Task: Analyze the following code snippet for vulnerabilities and inefficiencies. Suggest improvements and explain your rationale.
